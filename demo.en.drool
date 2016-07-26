@@ -1,4 +1,4 @@
-﻿to insert a pacture	source	@@ ./demo.jpeg
+﻿to insert a picture	source	@@ ./demo.jpeg
 	preview	@@./demo.jpeg
 to insert a video	source	@@ ./demo.mp3
 		@@ https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
