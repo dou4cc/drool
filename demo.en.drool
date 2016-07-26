@@ -1,14 +1,16 @@
-﻿to insert a picture	source	@@ ./demo.jpeg
-	preview	@@./demo.jpeg
+﻿# This is also a guide. Please view the source of this page at the same time.
+
+to insert a picture	source	@@ ./demo.jpeg
+	result	@@./demo.jpeg
 to insert a video	source	@@ ./demo.mp3
 		@@ https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
-	preview	@@./demo.mp3
+	result	@@./demo.mp3
 		@@https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
 to insert a link	source	There is @@ a link to @@ ./demo.webp https://www.google.com/ncr.
-	preview	There is @@a link to @@./demo.webp https://www.google.com/ncr.
+	result	There is @@a link to @@./demo.webp https://www.google.com/ncr.
 to align right	source	--- hello
 		—— 你好
-	preview	---hello
+	result	---hello
 		——你好
 “smart” retract	#include <iostream>
 	
