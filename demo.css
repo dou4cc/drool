@@ -1,0 +1,127 @@
+﻿@charset "utf-8";
+
+body{
+	text-align: center;
+}
+
+article{
+	display: inline-table;
+	text-align: left;
+	color: rgb(var(--color));
+	line-height: var(--line-height);
+}
+
+article > div{
+	min-height: var(--line-height);
+}
+
+article > div > a{
+	display: block;
+	float: left;
+	opacity: 0;
+}
+
+article > div > a::before{
+	content: "#";
+}
+
+article > div:hover > a{
+	opacity: 0.5;
+}
+
+article > div > a:hover,
+article > div > a:focus{
+	opacity: 1;
+}
+
+article > div > div{
+	display: table-cell;
+	vertical-align: top;
+}
+
+article > div > div:not(:first-of-type){
+	padding-left: calc(var(--tab-size) - 1px);
+	border-left: 1px dashed rgba(var(--color), 0.5);
+}
+
+article > div > div:last-of-type{
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+article > div > div > div{
+	white-space: pre;
+}
+
+article > div > div > div:not(:first-of-type){
+	overflow-y: hidden;
+	height: 0;
+}
+
+article > div > a,
+article > div > div > div:first-of-type{
+	position: sticky;
+	top: 0;
+}
+
+article > div > div:not(:first-of-type) > div,
+article > div > div:last-of-type:not(:first-of-type){
+	tab-size: calc(var(--tab-size) - 1px);
+	text-indent: calc(1px - var(--tab-size));
+}
+
+article > div > div:not(:first-of-type) > div *,
+article > div > div:last-of-type:not(:first-of-type) *{
+	text-indent: initial;
+}
+
+article div[right]{
+	text-align: right;
+}
+
+article > div > div a:not([hidden]){
+	display: inline-block;
+}
+
+article > div > div a:link{
+	border-bottom: 1px solid rgb(var(--color));
+	margin-bottom: -1px;
+}
+
+article > div > div a:visited{
+	border-bottom-style: dashed;
+}
+
+article > div > div a:hover,
+article > div > div a:focus{
+	background-color: rgba(var(--color), 0.17);
+}
+
+article span{
+	font-family: var(--font-family);
+}
+
+article a{
+	text-decoration: none;
+}
+
+article a:link,
+article a:active,
+article a:visited{
+	color: rgb(var(--color));
+}
+
+article a:focus{
+	outline: none;
+}
+
+article img,
+article video{
+	max-width: 100%;
+	margin-bottom: calc((1em - var(--line-height)) / 2);
+}
+
+article video[mini]{
+	width: 100%;
+	height: 28px;
+}

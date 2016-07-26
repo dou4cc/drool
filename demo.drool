@@ -1,0 +1,14 @@
+﻿插入图片	源码	@@ ./demo.jpeg
+	效果	@@./demo.jpeg
+插入音视频	源码	@@ ./demo.mp3
+		@@ ./demo.webm
+	效果	@@./demo.mp3
+		@@./demo.webm
+插入链接	源码	There is @@ a link to @@ ./demo.webp https://www.google.com/ncr.
+	效果	There is @@a link to @@./demo.webp https://www.google.com/ncr.
+“智能”缩进	#include <iostream>
+	
+	int main(){
+		std::cout << "Hello World!" << std::endl;
+		return 0;
+	}

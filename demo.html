@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>drool demo</title>
+	<link rel="stylesheet" href="./demo.css">
+</head>
+
+<body>
+	<article style="
+		font-size: 1.1em;
+		font-family: consolas, monospace;
+		--font-family: 黑体, monospace;
+		--line-height: 1.8em;
+		--color: 0, 0, 0;
+		--tab-size: 2ch;
+	"></article>
+	<script>
+		"use strict";
+
+		const global = this;
+		const $ = (...query) => document.querySelector(...query);
+		const require = async (uri, script) => (
+			script = await (await fetch(uri)).text(),
+			new require.constructor("'use strict'; " + script),
+			await global.eval("'use strict'; async () => {" + script + "}")()
+		);
+
+		(async () => {
+			const drool = await require("./drool.js");
+			$("article").append(...await drool(await (await fetch("./demo.drool")).text(), (function*(){
+				let i = 0;
+				while(true) yield i += 1;
+			})()));
+		})();
+	</script>
+</body>
+
+</html>
