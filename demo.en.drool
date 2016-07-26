@@ -1,14 +1,14 @@
-﻿# This is also a guide. Please view the source of this page at the same time.
+﻿# This is also a guide. When you read this guide, please view the source of this page at the same time.
 
-to insert a picture	source	@@ ./demo.jpeg
+to insert a picture	drool code	@@ ./demo.jpeg
 	result	@@./demo.jpeg
-to insert a video	source	@@ ./demo.mp3
+to insert a video	drool code	@@ ./demo.mp3
 		@@ https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
 	result	@@./demo.mp3
 		@@https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
-to insert a link	source	There is @@ a link to @@ ./demo.webp https://www.google.com/ncr.
+to insert a link	drool code	There is @@ a link to @@ ./demo.webp https://www.google.com/ncr.
 	result	There is @@a link to @@./demo.webp https://www.google.com/ncr.
-to align right	source	--- hello
+to align right	drool code	--- hello
 		—— 你好
 	result	---hello
 		——你好
