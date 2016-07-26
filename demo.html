@@ -31,8 +31,17 @@
 			const drool = await require("./drool.js");
 			$("article").append(...await drool(await (await fetch("./demo.drool")).text(), (function*(){
 				let i = 0;
-				while(true) yield i += 1;
+				while(true) yield "p" + (i += 1);
 			})()));
+			const onhashchange = () => {
+				try{
+					const target = $(decodeURI(location.hash));
+					scrollTo(target.offsetLeft, target.offsetTop);
+					target.focus();
+				}catch(error){}
+			};
+			addEventListener("hashchange", onhashchange);
+			requestAnimationFrame(() => setTimeout(onhashchange, 1000));
 		})();
 	</script>
 </body>
