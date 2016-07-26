@@ -1,0 +1,3 @@
+# drool
+## License
+MIT
