@@ -88,7 +88,7 @@
 			video_onerror = () => void (
 				video_off(),
 				video.src = "",
-				requestAnimationFrame(() => setTimeout(() => start(), 2000))
+				requestAnimationFrame(() => setTimeout(start, 2000))
 			),
 			start = () => void (
 				image.addEventListener("abort", image_onabort),
@@ -143,7 +143,7 @@
 			video_onerror = () => void (
 				video_off(),
 				video.src = "",
-				requestAnimationFrame(() => setTimeout(() => start(), 2000))
+				requestAnimationFrame(() => setTimeout(start, 2000))
 			),
 			start = () => void (
 				image.addEventListener("abort", image_onabort),
