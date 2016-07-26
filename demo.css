@@ -12,6 +12,8 @@ article{
 }
 
 article > div{
+	display: table;
+	width: 100%;
 	min-height: var(--line-height);
 }
 
@@ -45,6 +47,7 @@ article > div > div:not(:first-of-type){
 }
 
 article > div > div:last-of-type{
+	width: 100%;
 	white-space: pre-wrap;
 	word-break: break-word;
 }
