@@ -213,7 +213,7 @@
 			: f3(source),
 		cell = document.createElement("div")
 	) => (
-		/^\t?(?:-{3,}(?!-)|^—{2,}(?!—))[^ ]/u.test(source)
+		/^\t?(?:-{3,}(?!-)|—{2,}(?!—))[^ ]/u.test(source)
 		? (
 			cell.setAttribute("right", ""),
 			cell.append(...f4(source.replace(/(?<=^\t?)(?:-{3,}|—{2,})/u, "")))
