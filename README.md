@@ -4,7 +4,7 @@ It is said that the source of a markdown is so easy to be read, so why not show 
 
 See more on [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) which requires supports on async function, WebP, WebM, fetch API, CSS variable, sticky position, and full of ECMAScript 6. I recommend you use Chromium or Chrome Canary with the proper flags on. I was sorry to use a lot of unstable features and not to give the project a version. If you are unable to open the demo, you can refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
 
-There is a BOM in the head of every text file and I use `\r\n` rather than `\n` to break lines because I use Windows.
+There is a UTF-8 BOM in the head of every text file and I use `\r\n` rather than `\n` or `\r` to break lines.
 
 ## License
 MIT
