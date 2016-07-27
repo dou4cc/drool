@@ -4,5 +4,7 @@ It is said that the source of a markdown is so easy to be read, so why not show 
 
 See more on [a demo](https://dou4cc.github.io/drool/demo.en.html) which requires support on async function, WebP, WebM, fetch API, CSS variable, sticky position, and full of ECMAScript 6. I recommend you use Chromium or Chrome Canary with the proper flags on. I was sorry to use a lot of unstable features and not to give the project a version just because I was still a middle student and I was just for fun. There is a `screenshot.png` of the demo in the directory for you if you are unable to open the demo. The screenshot is in Chinese. My English sucks.
 
+There is a BOM in the front of every text file.
+
 ## License
 MIT
