@@ -1,0 +1,19 @@
+﻿# 本demo也是教程，请对照本页源码阅读。
+插入图片	drool源码	@@ ./demo.jpeg
+	效果	@@./demo.jpeg
+插入音视频	drool源码	@@ ./demo.mp3
+		@@ https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
+	效果	@@./demo.mp3
+		@@https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
+插入链接	drool源码	There is @@ a link to @@ ./demo.webp https://www.google.com/ncr.
+	效果	There is @@a link to @@./demo.webp https://www.google.com/ncr.
+右对齐	drool源码	--- hello
+		—— 你好
+	效果	---hello
+		——你好
+“智能”缩进	#include <iostream>
+	
+	int main(){
+		std::cout << "Hello World!" << std::endl;
+		return 0;
+	}
