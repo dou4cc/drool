@@ -2,10 +2,10 @@
 	source,
 	hash_iter,
 	new_span = (
-		source,
+		node,
 		span = document.createElement("span")
 	) => (
-		span.textContent = source,
+		span.append(node),
 		span
 	),
 	new_link = (
