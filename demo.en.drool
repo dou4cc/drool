@@ -2,7 +2,7 @@
 
 to insert a picture	drool code	@@ ./demo.jpeg
 	result	@@./demo.jpeg
-to insert a video	drool code	@@ ./demo.mp3
+to insert an audio and a video	drool code	@@ ./demo.mp3
 		@@ https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
 	result	@@./demo.mp3
 		@@https://videos.cdn.mozilla.net/uploads/mozillaorg/Mozilla_2014_i_am.webm
