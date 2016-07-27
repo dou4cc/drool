@@ -29,7 +29,7 @@
 
 		(async () => {
 			const drool = await require("./drool.js");
-			$("article").append(...await drool(await (await fetch("./demo.drool")).text(), (function*(){
+			$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
 				let i = 0;
 				while(true) yield "p" + (i += 1);
 			})()));
