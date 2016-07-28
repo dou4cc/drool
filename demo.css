@@ -62,6 +62,7 @@ article > div > div > div:not(:first-of-type){
 }
 
 article > div > a,
+article > div > div:last-of-type,
 article > div > div > div:first-of-type{
 	position: sticky;
 	top: 0;
@@ -80,6 +81,10 @@ article > div > div:last-of-type:not(:first-of-type) *{
 
 article div[right]{
 	text-align: right;
+}
+
+article div[media]{
+	text-align: center;
 }
 
 article > div > div a:not([hidden]){
@@ -126,5 +131,5 @@ article video{
 
 article video[mini]{
 	width: 100%;
-	height: 28px;
+	height: 0;
 }

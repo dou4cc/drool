@@ -218,7 +218,10 @@
 			cell.setAttribute("right", ""),
 			cell.append(...f4(source.replace(/(?<=^\t?)(?:-{3,}|—{2,})/u, "")))
 		)
-		: cell.append(...f4(source.replace(/(?<=^\t?-{3,}) (?=[^\-])|(?<=^\t?—{2,}) (?=[^—])/u, ""))),
+		: (
+			RegExp("^\\t?(?:@@" + $8 + "@?)+$", "u").test(source) && cell.setAttribute("media", ""),
+			cell.append(...f4(source.replace(/(?<=^\t?-{3,}) (?=[^\-])|(?<=^\t?—{2,}) (?=[^—])/u, "")))
+		),
 		cell
 	),
 	new_column = (
