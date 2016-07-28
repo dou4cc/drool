@@ -2,7 +2,7 @@
 
 Since it is said that the source of a markdown is as readable as visual documents, why do we compile `*something*` to *something*? Based on this consideration, I designed *drool*. You cannot make something bold or italic with it (because sources like `*something*` is readable enough), which is why drool is different from markdown. You can retract (the restract of drool can be used as table) and align right something to express the structure of a document and can still insert media elements and links. Compared with markdown, drool is minimal without signals like `[` or `!`. Drool will not make a literary article look like programming codes.
 
-For details, please see [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) which requires browsers supporting async function, WebP, WebM, fetch API, CSS variable, sticky position, and full of ECMAScript 6. I recommend you use Chromium or Chrome Canary with the proper flags on. I am sorry that I used a lot of unstable features. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
+For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) which requires your browser supporting async function, WebP, WebM, fetch API, CSS variable, sticky position, and full of ECMAScript 6. I recommend you use Chromium or Chrome Canary with the proper flags on. I am sorry that I used a lot of unstable features. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
 
 There is a UTF-8 BOM in the head of every text file except this file and I use `\r\n` to break lines.
 
