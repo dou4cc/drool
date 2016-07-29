@@ -1,9 +1,5 @@
 ﻿@charset "utf-8";
 
-body{
-	text-align: center;
-}
-
 article{
 	display: inline-table;
 	text-align: left;
@@ -31,8 +27,8 @@ article > div:hover > a{
 	opacity: 0.5;
 }
 
-article > div > a:hover,
-article > div > a:focus{
+article > div > a:focus,
+html[blur] article > div > a:hover{
 	opacity: 1;
 }
 
@@ -52,56 +48,54 @@ article > div > div:last-of-type{
 	word-break: break-word;
 }
 
-article > div > div > div{
+article > div > div:not(:last-of-type) > div{
 	white-space: pre;
 }
 
-article > div > div > div:not(:first-of-type){
+article > div > div:not(:last-of-type) > div:not(:first-of-type){
 	overflow-y: hidden;
 	height: 0;
 }
 
 article > div > a,
 article > div > div:last-of-type,
-article > div > div > div:first-of-type{
+article > div > div:not(:last-of-type) > div{
 	position: sticky;
 	top: 0;
 }
 
-article > div > div:not(:first-of-type) > div,
-article > div > div:last-of-type:not(:first-of-type){
+article > div > div:last-of-type:not(:first-of-type),
+article > div > div:not(:last-of-type):not(:first-of-type) > div{
 	tab-size: calc(var(--tab-size) - 1px);
 	text-indent: calc(1px - var(--tab-size));
 }
 
-article > div > div:not(:first-of-type) > div *,
-article > div > div:last-of-type:not(:first-of-type) *{
+article > div > div:last-of-type:not(:first-of-type) *,
+article > div > div:not(:last-of-type):not(:first-of-type) > div *{
 	text-indent: initial;
-}
-
-article div[right]{
-	text-align: right;
-}
-
-article div[media]{
-	text-align: center;
 }
 
 article > div > div a:not([hidden]){
 	display: inline-block;
+	position: relative;
 }
 
-article > div > div a:link{
+article > div > div a:link::after{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 0;
 	border-bottom: 1px solid rgb(var(--color));
-	margin-bottom: -1px;
+	bottom: 0;
+	content: "";
 }
 
-article > div > div a:visited{
+article > div > div a:visited::after{
 	border-bottom-style: dashed;
 }
 
-article > div > div a:hover,
-article > div > div a:focus{
+article > div > div a:focus,
+html[blur] article > div > div a:hover{
 	background-color: rgba(var(--color), 0.17);
 }
 
@@ -132,4 +126,12 @@ article video{
 article video[mini]{
 	width: 100%;
 	height: 0;
+}
+
+article [right]{
+	text-align: right;
+}
+
+article [center]{
+	text-align: center;
 }

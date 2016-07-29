@@ -164,7 +164,7 @@
 		$5 = "\\)*" + $4 + "@*(?=@" + $3 + ")",
 		$6 = "\\)+@*(?=@\\)*(?:" + $4 + "?(?:\\s|$))|" + $3 + ")",
 		$7 = "(?=\\)*(?:" + $4 + "?(?:\\s|$))|" + $3 + ")",
-		$8 = "(?:(?:[a-z0-9\-]+:\\/\\/|\\/\\/|data:)" + $2 + "|\\/(?!\\/)|\\.\\.?\\/)" + $2 + "*?(?:" + $5 + "|" + $6 + "|" + $7 + ")",
+		$8 = "(?:[a-z0-9\-]+:\\/\\/|\\/\\/|data:|\\.{0,2}\\/)" + $2 + "+?(?:" + $5 + "|" + $6 + "|" + $7 + ")",
 		$9 = "(?:(?:[a-z0-9\-]+:\\/\\/|\\/\\/|data:|javascript:|mailto:)" + $2 + "|\\/(?!\\/)|\\.\\.?\\/)" + $2 + "*?(?:" + $5 + "|" + $6 + "|" + $7 + ")",
 		$10 = "(?=\\S)(?!" + $8 + ")(.*?(?:@@" + $8 + "@?.*?)+?|.+?)(?:\\s+|(?<=\\)|" + $3 + "))(" + $9 + ")@?",
 		f1 = source => plain(source.replace(RegExp("(?<=@@) (?= *" + $8 + ")", "ug"), "")),
@@ -219,7 +219,7 @@
 			cell.append(...f4(source.replace(/(?<=^\t?)(?:-{3,}|—{2,})/u, "")))
 		)
 		: (
-			RegExp("^\\t?(?:@@" + $8 + "@?)+$", "u").test(source) && cell.setAttribute("media", ""),
+			RegExp("^\\t?(?:(?:@@" + $8 + "@?)+|-+|—+)$", "u").test(source) && cell.setAttribute("center", ""),
 			cell.append(...f4(source.replace(/(?<=^\t?-{3,}) (?=[^\-])|(?<=^\t?—{2,}) (?=[^—])/u, "")))
 		),
 		cell
@@ -227,14 +227,17 @@
 	new_column = (
 		x,
 		y,
-		f1 = n => matrix[n - 1] && typeof matrix[n - 1][y + 1] === "string" ? f1(n - 1) : n,
-		f2 = n => matrix[n + 1] && typeof matrix[n + 1][y + 1] === "string" ? f2(n + 1) : n,
-		f3 = n => n > top ? [] : [new_cell(matrix[n][y]), ...f3(n + 1)],
-		bottom = f1(x),
-		top = f2(x),
+		f1 = n =>
+			matrix[n - 1] && typeof matrix[n - 1][y + 1] === "string"
+			? [new_cell(matrix[n - 1][y]), ...f1(n - 1)]
+			: [],
+		f2 = n =>
+			matrix[n + 1] && typeof matrix[n + 1][y + 1] === "string"
+			? [new_cell(matrix[n + 1][y]), ...f2(n + 1)]
+			: [],
 		column = document.createElement("div")
 	) => (
-		column.append(new_cell(matrix[x][y]), ...f3(bottom)),
+		column.append(new_cell(matrix[x][y]), ...f1(x), ...f2(x)),
 		column
 	),
 	new_row = async (
