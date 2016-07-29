@@ -4,7 +4,7 @@ Since it is said that the source of a markdown is as readable as visual document
 
 For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) which requires your browser supporting async function, WebP, WebM, fetch API, CSS variable, sticky position, and full of ECMAScript 6. I recommend you use Chromium or Chrome Canary with the proper flags on. I am sorry that I used a lot of unstable features. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
 
-There is a UTF-8 BOM in the head of every text file except this file and I use `\r\n` to break lines.
+There is a UTF-8 BOM in the head of every text file and I use `\r\n` to break lines.
 
 ————————
 
@@ -12,7 +12,7 @@ There is a UTF-8 BOM in the head of every text file except this file and I use `
 
 详见[demo](https://dou4cc.github.io/drool/demo.html?./demo.han.drool)。你的浏览器得支持async function、WebP、WebM、fetch API、CSS variable、sticky position和完整的ECMAScript 6，我推荐使用开启了恰当实验选项的Chromium或Chrome Canary。抱歉使用了太多草案级别的特性，如果你打不开demo，请参考[英语版demo的截图](https://dou4cc.github.io/drool/screenshot.en.png)。
 
-因为使用了Windows和微软的编辑器，本仓库的每个文本文件（除了本文件）头都有UTF-8的BOM，使用`\r\n`换行。
+因为使用了Windows和微软的编辑器，本仓库的每个文本文件头都有UTF-8的BOM，使用`\r\n`换行。
 
 ## License
 MIT
