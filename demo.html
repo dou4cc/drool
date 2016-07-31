@@ -36,6 +36,13 @@
 			const $ = (...query) => document.querySelector(...query);
 			const drool = await require("./drool.js");
 
+			(async () => {
+				$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
+					let i = 0;
+					while(true) yield "p" + (i += 1);
+				})()));
+			})();
+
 			{
 				let process;
 				let count;
@@ -88,11 +95,6 @@
 			addEventListener("focus", () => {
 				$("html").removeAttribute("blur");
 			});
-
-			$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
-				let i = 0;
-				while(true) yield "p" + (i += 1);
-			})()));
 		})();
 	</script>
 </body>

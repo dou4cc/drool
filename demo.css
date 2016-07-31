@@ -4,6 +4,7 @@ article{
 	display: inline-table;
 	text-align: left;
 	color: rgb(var(--color));
+	background-color: white;
 	line-height: var(--line-height);
 }
 
@@ -17,6 +18,10 @@ article > div > a{
 	display: block;
 	float: left;
 	opacity: 0;
+}
+
+article > div > a *{
+	display: none;
 }
 
 article > div > a::before{
@@ -52,14 +57,13 @@ article > div > div:not(:last-of-type) > div{
 	white-space: pre;
 }
 
-article > div > div:not(:last-of-type) > div:not(:first-of-type){
+article > div > div:not(:last-of-type) > div:not(:last-of-type){
 	overflow-y: hidden;
 	height: 0;
 }
 
 article > div > a,
-article > div > div:last-of-type,
-article > div > div:not(:last-of-type) > div{
+article > div > div:not(:last-of-type) > div:last-of-type{
 	position: sticky;
 	top: 0;
 }
@@ -80,18 +84,38 @@ article > div > div a:not([hidden]){
 	position: relative;
 }
 
-article > div > div a:link::after{
+article > div > div a > div{
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 1px;
+	bottom: 0;
+	font-family: arial;
+	font-size: 100000000cm;
+	line-height: 1em;
+}
+
+article > div > div a > div > a{
+	position: absolute;
+	top: calc(1px - 1em);
+}
+
+article > div > div a > div > a:visited{
+	color: white;
+}
+
+article > div > div a > div > a::after{
+	display: none;
+}
+
+article > div > div a::after{
 	display: block;
 	position: absolute;
 	width: 100%;
 	height: 0;
-	border-bottom: 1px solid rgb(var(--color));
 	bottom: 0;
+	border-bottom: 1px dashed rgb(var(--color));
 	content: "";
-}
-
-article > div > div a:visited::after{
-	border-bottom-style: dashed;
 }
 
 article > div > div a:focus,

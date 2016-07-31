@@ -11,10 +11,14 @@
 	new_link = (
 		uri,
 		nodes,
-		link = document.createElement("a")
+		link = document.createElement("a"),
+		backup = document.createElement("a"),
+		decoration = document.createElement("div")
 	) => (
-		link.href = uri,
-		link.append(...nodes),
+		link.href = backup.href = uri,
+		backup.append("_"),
+		decoration.append(backup),
+		link.append(decoration, ...nodes),
 		link.addEventListener("click", () => void link.blur()),
 		link.addEventListener("mouseleave", () => void link.blur()),
 		link.addEventListener("mousemove", () => void link.focus()),
@@ -229,15 +233,19 @@
 		y,
 		f1 = n =>
 			matrix[n - 1] && typeof matrix[n - 1][y + 1] === "string"
-			? [new_cell(matrix[n - 1][y]), ...f1(n - 1)]
+			? ((
+				source = matrix[n - 1][y]
+			) => [...(/^\t?$/u.test(source) ? [] : [new_cell(source)]), ...f1(n - 1)])()
 			: [],
 		f2 = n =>
 			matrix[n + 1] && typeof matrix[n + 1][y + 1] === "string"
-			? [new_cell(matrix[n + 1][y]), ...f2(n + 1)]
+			? ((
+				source = matrix[n + 1][y]
+			) => [...(/^\t?$/u.test(source) ? [] : [new_cell(source)]), ...f2(n + 1)])()
 			: [],
 		column = document.createElement("div")
 	) => (
-		column.append(new_cell(matrix[x][y]), ...f1(x), ...f2(x)),
+		column.append(...f1(x), ...f2(x), new_cell(matrix[x][y])),
 		column
 	),
 	new_row = async (
@@ -248,21 +256,22 @@
 		{length} = list,
 		row = document.createElement("div")
 	) => (
-		hash_iter && (
-			hash = (await hash_iter.next()).value,
-			link = new_link("#" + hash, []),
-			link.id = hash,
-			row.append(link)
-		),
+		hash_iter && (hash = hash_iter.next()),
 		row.append(
 			...list.slice(0, -1).map((n, i) => new_column(x, i)),
 			new_cell(list[length - 1])
 		),
+		hash_iter && (
+			hash = (await hash).value,
+			link = new_link("#" + hash, []),
+			link.id = hash,
+			row.insertBefore(link, row.firstChild)
+		),
 		row
 	),
-	f = async n => n >= 0 ? [...await f(n - 1), await new_row(n)] : [],
+	f = n => n >= 0 ? [...f(n - 1), new_row(n)] : [],
 	matrix = source.split(/\n|\r\n|\r/ug).map(source => [
 		...(source.startsWith("\t") ? [""] : []),
 		...source.split(/(?=\t)/ug),
 	])
-) => await f(matrix.length - 1);
+) => await Promise.all(f(matrix.length - 1));
