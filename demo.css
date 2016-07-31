@@ -4,7 +4,7 @@ article{
 	display: inline-table;
 	text-align: left;
 	color: rgb(var(--color));
-	background-color: white;
+	background-color: rgba(255, 255, 255, var(--background-opacity));
 	line-height: var(--line-height);
 }
 
@@ -91,7 +91,7 @@ article > div > div a::before{
 }
 
 article > div > div a:visited::before{
-	border-bottom-color: white;
+	border-bottom-color: rgb(255, 255, 255);
 }
 
 article > div > div a::after{
