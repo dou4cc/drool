@@ -80,14 +80,20 @@ article > div > div a:not([hidden]){
 	position: relative;
 }
 
-article > div > div a::before{
+article > div > div a::before,
+article > div > div a::after{
 	display: block;
 	position: absolute;
 	width: 100%;
 	height: 0;
 	bottom: 0;
-	border-bottom: 1px solid rgb(var(--color));
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(var(--color));
 	content: "";
+}
+
+article > div > div a::before{
+	border-bottom-style: solid;
 }
 
 article > div > div a:visited::before{
@@ -95,13 +101,7 @@ article > div > div a:visited::before{
 }
 
 article > div > div a::after{
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 0;
-	bottom: 0;
-	border-bottom: 1px dashed rgb(var(--color));
-	content: "";
+	border-bottom-style: dashed;
 }
 
 article > div > div a:focus,
