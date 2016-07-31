@@ -20,10 +20,6 @@ article > div > a{
 	opacity: 0;
 }
 
-article > div > a *{
-	display: none;
-}
-
 article > div > a::before{
 	content: "#";
 }
@@ -84,28 +80,18 @@ article > div > div a:not([hidden]){
 	position: relative;
 }
 
-article > div > div a > div{
+article > div > div a::before{
+	display: block;
 	position: absolute;
-	overflow: hidden;
 	width: 100%;
-	height: 1px;
+	height: 0;
 	bottom: 0;
-	font-family: arial;
-	font-size: 100000000cm;
-	line-height: 1em;
+	border-bottom: 1px solid rgb(var(--color));
+	content: "";
 }
 
-article > div > div a > div > a{
-	position: absolute;
-	top: calc(1px - 1em);
-}
-
-article > div > div a > div > a:visited{
-	color: white;
-}
-
-article > div > div a > div > a::after{
-	display: none;
+article > div > div a:visited::before{
+	border-bottom-color: white;
 }
 
 article > div > div a::after{

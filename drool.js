@@ -11,14 +11,10 @@
 	new_link = (
 		uri,
 		nodes,
-		link = document.createElement("a"),
-		backup = document.createElement("a"),
-		decoration = document.createElement("div")
+		link = document.createElement("a")
 	) => (
-		link.href = backup.href = uri,
-		backup.append("_"),
-		decoration.append(backup),
-		link.append(decoration, ...nodes),
+		link.href = uri,
+		link.append(...nodes),
 		link.addEventListener("click", () => void link.blur()),
 		link.addEventListener("mouseleave", () => void link.blur()),
 		link.addEventListener("mousemove", () => void link.focus()),
