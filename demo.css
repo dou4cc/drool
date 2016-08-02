@@ -135,7 +135,7 @@ article video{
 
 article video[mini]{
 	width: 100%;
-	height: 0;
+	height: 28px;
 }
 
 article [right]{
