@@ -27,75 +27,79 @@
 		"use strict";
 
 		(async () => {
-			const global = this;
-			const require = async (uri, script) => (
-				script = await (await fetch(uri)).text(),
-				new require.constructor("'use strict'; " + script),
-				await global.eval("'use strict'; async () => {" + script + "}")()
-			);
-
-			const $ = (...query) => document.querySelector(...query);
-			const drool = await require("./drool.js");
-
-			(async () => {
-				$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
-					let i = 0;
-					while(true) yield "p" + (i += 1);
-				})()));
-			})();
-
-			{
-				let process;
-				let count;
-				const onscroll = () => {
-					if(count){
-						count -= 1;
-					}else{
-						cancelAnimationFrame(process);
-						removeEventListener("scroll", onscroll);
-						location = "###";
-					}
-				};
-				const onhashchange = () => {
-					try{
-						cancelAnimationFrame(process);
-						removeEventListener("scroll", onscroll);
-						if(location.hash.length > 1 && location.hash !== "###"){
-							const query = decodeURI(location.hash);
-							const f = () => {
-								try{
-									process = requestAnimationFrame(f);
-									const node = $(query);
-									const ff = () => {
-										process = requestAnimationFrame(ff);
-										const x = Math.min(Math.max(0, node.offsetLeft), $("html").scrollWidth - $("html").clientWidth);
-										const y = Math.min(Math.max(0, node.offsetTop), $("html").scrollHeight - $("html").clientHeight);
-										if(x !== $("html").scrollLeft || y !== $("html").scrollTop){
-											count += 1;
-											scrollTo(x, y);
-										}
-									};
-									node.focus();
-									cancelAnimationFrame(process);
-									count = 0;
-									addEventListener("scroll", onscroll);
-									ff();
-								}catch(error){}
-							};
-							f();
+			try{
+				const global = this;
+				const require = async (uri, script) => (
+					script = await (await fetch(uri)).text(),
+					new require.constructor("'use strict'; " + script),
+					await global.eval("'use strict'; async () => {" + script + "}")()
+				);
+	
+				const $ = (...query) => document.querySelector(...query);
+				const drool = await require("./drool.js");
+	
+				(async () => {
+					$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
+						let i = 0;
+						while(true) yield "p" + (i += 1);
+					})()));
+				})();
+	
+				{
+					let process;
+					let count;
+					const onscroll = () => {
+						if(count){
+							count -= 1;
+						}else{
+							cancelAnimationFrame(process);
+							removeEventListener("scroll", onscroll);
+							location = "###";
 						}
-					}catch(error){}
-				};
-				addEventListener("hashchange", onhashchange);
-				onhashchange();
+					};
+					const onhashchange = () => {
+						try{
+							cancelAnimationFrame(process);
+							removeEventListener("scroll", onscroll);
+							if(location.hash.length > 1 && location.hash !== "###"){
+								const query = decodeURI(location.hash);
+								const f = () => {
+									try{
+										process = requestAnimationFrame(f);
+										const node = $(query);
+										const ff = () => {
+											process = requestAnimationFrame(ff);
+											const x = Math.min(Math.max(0, node.offsetLeft), $("html").scrollWidth - $("html").clientWidth);
+											const y = Math.min(Math.max(0, node.offsetTop), $("html").scrollHeight - $("html").clientHeight);
+											if(x !== $("html").scrollLeft || y !== $("html").scrollTop){
+												count += 1;
+												scrollTo(x, y);
+											}
+										};
+										node.focus();
+										cancelAnimationFrame(process);
+										count = 0;
+										addEventListener("scroll", onscroll);
+										ff();
+									}catch(error){}
+								};
+								f();
+							}
+						}catch(error){}
+					};
+					addEventListener("hashchange", onhashchange);
+					onhashchange();
+				}
+	
+				addEventListener("blur", () => {
+					$("html").setAttribute("blur", "");
+				});
+				addEventListener("focus", () => {
+					$("html").removeAttribute("blur");
+				});
+			}catch(error){
+				console.error(error);
 			}
-
-			addEventListener("blur", () => {
-				$("html").setAttribute("blur", "");
-			});
-			addEventListener("focus", () => {
-				$("html").removeAttribute("blur");
-			});
 		})();
 	</script>
 </body>
