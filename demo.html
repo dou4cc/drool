@@ -98,7 +98,9 @@
 					$("html").removeAttribute("blur");
 				});
 			}catch(error){
-				console.error(error);
+				setTimeout(() => {
+					throw error;
+				}, 0);
 			}
 		})();
 	</script>
