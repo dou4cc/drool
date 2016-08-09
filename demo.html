@@ -41,7 +41,7 @@
 				(async () => {
 					$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
 						let i = 0;
-						while(true) yield "p" + (i += 1);
+						while(true) yield (i += 1);
 					})()));
 				})();
 	
@@ -54,19 +54,19 @@
 						}else{
 							cancelAnimationFrame(process);
 							removeEventListener("scroll", onscroll);
-							location = "###";
+							location = "##";
 						}
 					};
 					const onhashchange = () => {
 						try{
 							cancelAnimationFrame(process);
 							removeEventListener("scroll", onscroll);
-							if(location.hash.length > 1 && location.hash !== "###"){
+							if(location.hash.length > 1 && location.hash !== "##"){
 								const query = decodeURI(location.hash);
 								const f = () => {
 									try{
 										process = requestAnimationFrame(f);
-										const node = $(query);
+										const node = document.getElementById(query.slice(1));
 										const ff = () => {
 											process = requestAnimationFrame(ff);
 											const x = Math.min(Math.max(0, node.offsetLeft), $("html").scrollWidth - $("html").clientWidth);
