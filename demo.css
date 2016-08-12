@@ -40,7 +40,7 @@ article > div > div{
 
 article > div > div:not(:first-of-type){
 	padding-left: calc(var(--tab-size) - 1px);
-	border-left: 1px dashed rgba(var(--color), 0.5);
+	border-left: 1px dotted rgba(var(--color), 0.5);
 }
 
 article > div > div:last-of-type{
