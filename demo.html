@@ -41,7 +41,7 @@
 				(async () => {
 					$("article").append(...await drool(await (await fetch(location.search.slice(1))).text(), (function*(){
 						let i = 0;
-						while(true) yield (i += 1);
+						while(true) yield "p" + (i += 1);
 					})()));
 				})();
 	
