@@ -222,6 +222,7 @@
 			RegExp("^\\t?(?:(?:@@" + $8 + "@?)+|-+|—+)$", "u").test(source) && cell.setAttribute("center", ""),
 			cell.append(...f4(source.replace(/(?<=^\t?-{3,}) (?=[^\-])|(?<=^\t?—{2,}) (?=[^—])/u, "")))
 		),
+		cell.append(new_span("")),
 		cell
 	),
 	new_column = (
