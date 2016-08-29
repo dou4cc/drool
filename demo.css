@@ -75,6 +75,14 @@ article > div > div:not(:last-of-type):not(:first-of-type) > div *{
 	text-indent: initial;
 }
 
+article > div > a::after,
+article > div > div:last-of-type::before,
+article > div > div:not(:last-of-type) > div::before,
+article > div > div a::before,
+article > div > div a::after{
+	content: "";
+}
+
 article > div > div a:not([hidden]){
 	display: inline-block;
 	position: relative;
@@ -89,7 +97,6 @@ article > div > div a::after{
 	bottom: 0;
 	border-bottom-width: 1px;
 	border-bottom-color: rgb(var(--color));
-	content: "";
 }
 
 article > div > div a::before{
@@ -109,7 +116,10 @@ html[blur] article > div > div a:hover{
 	background-color: rgba(var(--color), 0.17);
 }
 
-article span{
+article span,
+article > div > a::after,
+article > div > div:last-of-type::before,
+article > div > div:not(:last-of-type) > div::before{
 	font-family: var(--font-family);
 }
 
