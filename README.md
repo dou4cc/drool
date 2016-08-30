@@ -17,6 +17,7 @@ There is a UTF-8 BOM in the head of every text file and I use `\r\n` to break li
 详见[demo](https://dou4cc.github.io/drool/demo.html?./demo.han.drool)。**你的浏览器得支持`Element.prototype.append`、async functions、WebP、WebM、fetch API、CSS变量、CSS sticky position和完整的ECMAScript 6**，我推荐使用启用了如下实验选项
 - *chrome://flags/#enable-javascript-harmony*
 - *chrome://flags/#enable-experimental-web-platform-features*
+
 的[Chromium](https://download-chromium.appspot.com)或[Chrome Canary](https://www.google.com/chrome/browser/canary.html)。抱歉使用了一些草案级别的、连[Babel](https://babeljs.io)都不支持的特性，如果你打不开demo，请参考[其英语版的截图](https://dou4cc.github.io/drool/screenshot.en.png)。
 
 因为使用了Windows和微软的编辑器，本仓库的每个文本文件头都有UTF-8的BOM，使用`\r\n`换行。
