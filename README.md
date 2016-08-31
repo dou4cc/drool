@@ -4,7 +4,11 @@
 - Compared with markdown, *drool* is minimal without signals like `[` or `!`. *drool* will not make a literary article look like programming codes.
 - You can use links like `https://example.org/)` in *drool* but cannot in markdown.
 
-For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) **which requires your browser supporting `Element.prototype.append`, async functions, WebP, WebM, fetch API, CSS Variables, CSS sticky position, and full of ECMAScript 6**. I recommend you use [Chromium](https://download-chromium.appspot.com) or [Chrome Canary](https://www.google.com/chrome/browser/canary.html) with two flags, *chrome://flags/#enable-javascript-harmony* and *chrome://flags/#enable-experimental-web-platform-features*, enabled. I am sorry that I used a few unstable features even [Babel](https://babeljs.io) does not support which. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
+For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) **which requires your browser supporting `Element.prototype.append`, async functions, WebP, WebM, fetch API, CSS Variables, CSS sticky position, and full of ECMAScript 6**. I recommend you use [Chromium](https://download-chromium.appspot.com) or [Chrome Canary](https://www.google.com/chrome/browser/canary.html) with two flags enabled:
+- *chrome://flags/#enable-javascript-harmony*
+- *chrome://flags/#enable-experimental-web-platform-features*
+
+I am sorry that I used a few unstable features even [Babel](https://babeljs.io) does not support which. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
 
 There is a UTF-8 BOM in the head of every text file and I use `\r\n` to break lines.
 
