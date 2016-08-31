@@ -10,7 +10,7 @@ For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./de
 
 I am sorry that I used a few unstable features even [Babel](https://babeljs.io) does not support which. If you are unable to open the demo, please refer to [the screenshot](https://dou4cc.github.io/drool/screenshot.en.png).
 
-There is a UTF-8 BOM in the head of every text file of this repository and I use `\r\n` to break lines. (You do not need add a BOM.)
+There is a UTF-8 BOM in the head of every text file of this repository and I use `\r\n` to break lines. (You do not need add a BOM to your *drool* file.)
 
 ————————
 
