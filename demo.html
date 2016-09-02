@@ -38,7 +38,8 @@
 			const drool = require("./drool.js");
 
 			(async () => {
-				$("article").append(...await (await drool)(await (await fetch(location.search.slice(1))).text(), (function*(){
+				const source = await (await fetch(location.search.slice(1))).text();
+				$("article").append(...await (await drool)(source, (function*(){
 					let i = 0;
 					while(true) yield "p" + (i += 1);
 				})()));
