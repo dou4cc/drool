@@ -14,7 +14,7 @@ There is a UTF-8 BOM in the head of every text file of this repository and I use
 
 ————————
 
-- 既然markdown自称源码的可读性堪比可视化编辑，为什么我们还要把`*something*`编译成*something*？*drool*没有加粗、斜体之类的功能（`*something*`的可读性就很好了，不是吗？），但可用缩进（*drool*的缩进可用作表格，比如`./demo.han.drool`就包含一个表格，使用普通文本编辑器打开时为了不使表格混乱，应**调宽tab-size，例如调成25ch**）和右对齐表达文档结构，图片（音视频）、链接仍可插入。
+- 既然markdown自称源码的可读性堪比可视化编辑，为什么我们还要把`*something*`编译成*something*？*drool*没有加粗、斜体之类的功能（`*something*`的可读性就很好了，不是吗？），但可用缩进（*drool*的缩进可用作表格，比如`./demo.han.drool`就包含一个表格，使用普通文本编辑器打开时为了不使表格混乱，应**调宽tab-size，例如调成12ch**）和右对齐表达文档结构，图片（音视频）、链接仍可插入。
 - 相比markdown，*drool*是极简的，不使用`[`、`!`之类的标识。*drool*不会像markdown那样让一篇文学文章看上去布满代码。
 - markdown要求链接和图片的URL要么不含括号，要么成对出现，而*drool*不要求，毕竟不成对出现括号的URL也是合法的。
 - *drool*对中文友好，中文标点不会使用英文字体。
