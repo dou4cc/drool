@@ -12,7 +12,7 @@
 		"use strict";
 
 		{
-			console.time("Load Time");
+			//console.time("Load Time");
 			const global = this;
 			const require = async (uri, script) => (
 				script = await (await fetch(uri)).text(),
@@ -29,7 +29,7 @@
 					let i = 0;
 					while(true) yield "p" + (i += 1);
 				})()));
-				console.timeEnd("Load Time");
+				//console.timeEnd("Load Time");
 			})();
 
 			{
