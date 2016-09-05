@@ -2,7 +2,7 @@
 
 - Since it is said that the source of a markdown is as readable as visual documents, why do we compile `*something*` to *something*? Based on this consideration, I designed *drool*. You cannot make something bold or italic with it (because sources like `*something*` is readable enough), which is why *drool* is different from markdown. You can retract (The restract of drool can be used as table. I made a table in `./demo.en.drool`. When viewing a *drool* file which contains a table with a common text editor, I recommand you **set tab-size to at least 31ch**.) and right align something to express the structure of a document and can still insert media elements and links.
 - Compared with markdown, *drool* is minimal without signals like `[` or `!`. *drool* will not make a literary article look like programming codes.
-- You can use links like `https://example.org/)` in *drool* but cannot in markdown.
+- You can use links like `https://example.org/).html` in *drool* but cannot in markdown.
 
 For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) **which requires your browser supporting `Element.prototype.append`, async (generator) functions, WebP, WebM, fetch API, CSS Variables, CSS sticky position, and full of ECMAScript 6**. I recommend you use [Chromium](https://download-chromium.appspot.com) or [Chrome Canary](https://www.google.com/chrome/browser/canary.html) with two flags enabled before 2017:
 - *chrome://flags/#enable-javascript-harmony*
