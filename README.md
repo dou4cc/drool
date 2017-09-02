@@ -4,7 +4,7 @@
 - Compared with markdown, *drool* is minimal without signals like `[` or `!`. *drool* will not make a literary article look like programming codes.
 - You can use links like `https://example.org/).html` in *drool* but cannot in markdown.
 
-For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) **which requires your browser supporting `Element.prototype.append`, async (generator) functions, WebP, WebM, fetch API, CSS Variables, CSS sticky position, and full of ECMAScript 6**. I recommend you use [Chromium](https://download-chromium.appspot.com) or [Chrome Canary](https://www.google.com/chrome/browser/canary.html) with two flags enabled before 2017:
+For details, please visit [a demo](https://dou4cc.github.io/drool/demo.html?./demo.en.drool) **which requires your browser supporting `Element.prototype.append`, async (generator) functions, WebP, WebM, fetch API, CSS Variables, CSS sticky position, and full of ECMAScript 6**. I recommend you use [Chromium](https://download-chromium.appspot.com) or [Chrome Canary](https://www.google.com/chrome/browser/canary.html) with two flags enabled before 2018:
 - *chrome://flags/#enable-javascript-harmony*
 - *chrome://flags/#enable-experimental-web-platform-features*
 
